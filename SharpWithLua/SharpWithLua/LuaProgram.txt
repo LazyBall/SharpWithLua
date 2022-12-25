@@ -1,0 +1,14 @@
+--https://john.cs.olemiss.edu/~hcc/csci555/notes/SICP_examples/Lua/gcd.lua
+function gcd(a,b)
+  if type(a) == "number" and type(b) == "number" and 
+        a == math.floor(a) and b == math.floor(b) then
+    if b == 0 then
+      return a
+    else
+      return gcd(b, a % b) -- tail recursion
+    end
+  else
+    error("Invalid argument to gcd (" .. tostring(a) .. "," .. 
+          tostring(b) .. ")", 2)
+  end
+end
